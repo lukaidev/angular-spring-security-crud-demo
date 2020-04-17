@@ -1,0 +1,14 @@
+<h1 mat-dialog-title>{{data.title}}</h1>
+<div mat-dialog-content>
+  {{data.message}}
+</div>
+<div mat-dialog-actions>
+  <div *ngIf="data.isConfirmation; else message">
+    <button mat-button [mat-dialog-close]="true">Ok</button>
+    <button mat-button (click)="onNoClick()" cdkFocusInitial>Cancel</button>
+  </div>
+</div>
+
+<ng-template #message>
+  <button mat-button (click)="onNoClick()">Ok</button>
+</ng-template>

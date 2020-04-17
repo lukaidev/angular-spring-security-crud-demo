@@ -1,0 +1,35 @@
+<div *ngIf="menuPage | async as menus; else loading" class="space">
+
+    <div fxLayout="row" fxLayoutWrap fxLayoutGap="0.5%">
+        <div fxFlex="100%">
+            <button class="menu-button-add" mat-button (click)="openAddDialog()">ADD MENU</button>
+        </div>
+    </div>
+
+    <mat-accordion class="space">
+        <mat-expansion-panel *ngFor="let menu of menus.results; let i=index;">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    {{menu.name}} ({{menu.menuItems.length}})
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+
+            <app-menu-card (menuRemoved)="menuRemove($event)" [menu]="menu"></app-menu-card>
+
+        </mat-expansion-panel>
+
+    </mat-accordion>
+
+</div>
+
+<div class="menu-page" fxLayout="row" fxLayoutWrap fxLayoutGap="0.5%">
+    <div fxFlex="100%">
+        <mat-paginator [length]="length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
+            [showFirstLastButtons]="true" (page)="pageEvent=getPage($event)">
+        </mat-paginator>
+    </div>
+</div>
+
+<ng-template #loading>
+    <div>Loading ...</div>
+</ng-template>

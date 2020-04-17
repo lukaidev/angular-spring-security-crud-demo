@@ -1,0 +1,40 @@
+<mat-card>
+    <mat-card-header class="menu-header">
+        <mat-card-title fxLayout="row" fxLayoutWrap fxLayoutGap="0.5%">
+            <div fxFlex="100%">
+                <span *ngIf="!editMode" class="menu-header-title">{{menu.name}}</span>
+                <span *ngIf="editMode">
+                    <form [formGroup]="form">
+                        <mat-form-field>
+                            <mat-label>Name</mat-label>
+                            <input [id]="menu.id" matInput placeholder="Menu Name" formControlName="menuname">
+                        </mat-form-field>
+                    </form>
+                </span>
+                <span *ngIf="!editMode">
+                    <button mat-icon-button (click)="onEditMenu()">
+                        <mat-icon class="icon-display" aria-hidden="false">create
+                        </mat-icon>
+                    </button>
+                    <button mat-icon-button (click)="onRemoveMenu(menu)">
+                        <mat-icon class=" icon-display" aria-hidden="false">
+                            clear</mat-icon>
+                    </button>
+                </span>
+                <span *ngIf=" editMode">
+                    <button mat-icon-button (click)="onSaveMenu(menu)">
+                        <mat-icon class="icon-display" aria-hidden="false">
+                            check</mat-icon>
+                    </button>
+                    <button mat-icon-button (click)="onEditMenuExit()">
+                        <mat-icon class="icon-display" aria-hidden="false">clear
+                        </mat-icon>
+                    </button>
+                </span>
+            </div>
+        </mat-card-title>
+    </mat-card-header>
+
+    <app-menu-item [menu]="menu"></app-menu-item>
+
+</mat-card>

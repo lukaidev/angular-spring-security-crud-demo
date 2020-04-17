@@ -1,0 +1,18 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+  }
+
+.logout {
+  font-size: 1.5rem;
+}
+
+  .toolbar {
+    background-color: #121c54;
+  }

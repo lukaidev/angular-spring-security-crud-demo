@@ -1,0 +1,21 @@
+<div class="card-content space" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
+  
+    <div fxFlex="100%">
+      <mat-card>
+        <mat-card-content>
+          <h1>Coding Exercise</h1>
+          <h3>Sample crud operations on both parent and child entities</h3>
+          <div *ngIf="credentials | async">
+            <app-menu *ngIf='checkAdminRole(); else nocred'></app-menu>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  
+  <ng-template #nocred>
+    <div class="space">
+      You don't have access to this page...
+    </div>
+  </ng-template>
+  
+  </div>

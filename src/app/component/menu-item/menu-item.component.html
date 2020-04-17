@@ -1,0 +1,12 @@
+<mat-card-content>
+    <div class="space" *ngFor="let item of menuItems; let i=index;">
+        <app-menu-item-card [menuId]="menu.id" [item]="item" (menuItemRemoved)="menuItemRemove($event)">
+        </app-menu-item-card>
+    </div>
+
+    <div fxLayout="row" fxLayoutWrap fxLayoutGap="0.5%">
+        <div fxFlex="100%">
+            <button class="menu-item-button-add" mat-button (click)="openDialog()">ADD ITEM</button>
+        </div>
+    </div>
+</mat-card-content>

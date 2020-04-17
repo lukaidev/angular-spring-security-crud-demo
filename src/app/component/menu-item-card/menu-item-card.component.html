@@ -1,0 +1,42 @@
+<form [formGroup]="form">
+    <mat-card fxLayout="row" fxLayoutWrap fxLayoutGap="0.5%">
+        <div class="menu-item-header-title" fxFlex="40%">
+            <span *ngIf="!editMode">{{item.name}}</span>
+            <span *ngIf="editMode">
+                <mat-form-field class="example-full-width">
+                    <mat-label>Name</mat-label>
+                    <input formControlName="name" matInput placeholder="Menu Item Name">
+                </mat-form-field>
+            </span>
+        </div>
+        <div class="menu-item-header-title" fxFlex="40%">
+            <span *ngIf="!editMode">{{item.price}}</span>
+            <span *ngIf="editMode">
+                <mat-form-field class="example-full-width">
+                    <mat-label>Price</mat-label>
+                    <input formControlName="price" type="number" matInput placeholder="Menu Item Price">
+                </mat-form-field>
+            </span>
+        </div>
+        <div class="menu-item-header-control" fxFlex="20%">
+            <span *ngIf="!editMode">
+                <button mat-icon-button (click)="onEditMenu()">
+                    <mat-icon class="icon-display" aria-hidden="false">create</mat-icon>
+                </button>
+                <button mat-icon-button (click)="onRemoveMenu(item)">
+                    <mat-icon class="icon-display" aria-hidden="false">clear</mat-icon>
+                </button>
+            </span>
+            <span *ngIf=" editMode">
+                <button mat-icon-button (click)="onSaveMenu(item)">
+                    <mat-icon class="icon-display" aria-hidden="false">
+                        check</mat-icon>
+                </button>
+                <button mat-icon-button (click)="onEditMenuExit()">
+                    <mat-icon class="icon-display" aria-hidden="false">clear
+                    </mat-icon>
+                </button>
+            </span>
+        </div>
+    </mat-card>
+</form>

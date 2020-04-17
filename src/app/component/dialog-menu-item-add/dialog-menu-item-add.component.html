@@ -1,0 +1,36 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+    <h1 mat-dialog-title>Add Menu Item</h1>
+    <div mat-dialog-content class="dialog-content">
+
+        <div fxLayout="row" fxLayoutWrap fxLayoutGap="0.5%">
+            <div fxFlex="40%">
+                <span>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Name</mat-label>
+                        <input formControlName="name" matInput placeholder="Menu Item Name">
+                    </mat-form-field>
+                </span>
+            </div>
+
+            <div fxFlex="40%">
+
+                <span>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Price</mat-label>
+                        <input formControlName="price" type="number" matInput placeholder="Menu Item Price">
+                    </mat-form-field>
+                </span>
+            </div>
+        </div>
+
+        <p *ngIf="error" class="error">
+            {{ error }}
+        </p>
+    </div>
+    <div mat-dialog-actions>
+        <div>
+            <button mat-button type="submit">Add</button>
+            <button mat-button (click)="onNoClick()" cdkFocusInitial>Cancel</button>
+        </div>
+    </div>
+</form>

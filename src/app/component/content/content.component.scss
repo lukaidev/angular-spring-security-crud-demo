@@ -1,0 +1,26 @@
+.card-content {
+    min-height: 30vh;
+    padding-top: 1rem;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding-top: 0.1rem;
+  }
+  
+  
+  @media only screen and (max-width: 1200px) {
+  
+    .card-content {
+      padding-top: 1rem;
+      margin-left: 0%;
+      margin-right: 0%;
+  
+    }
+  }
+  
+  @media only screen and (max-width: 600px) {
+  
+    .card-content {
+        padding-top: 0.1rem;
+  
+    }
+  }

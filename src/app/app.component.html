@@ -1,0 +1,11 @@
+
+<div *ngIf='(authenticated | async); else login'>
+    <div>
+        <a href="javascript:void(0)" class="logout" (click)='logout()'>logout</a>
+    </div>
+    <router-outlet></router-outlet>
+</div>
+
+<ng-template #login>
+    <app-login></app-login>
+</ng-template>
